@@ -1,7 +1,7 @@
 import telebot
-import os  # ⬅️ OS modulini qo‘shamiz
+import os  # OS moduli kerak bo'ladi
 
-TOKEN = os.environ.get("TELEGRAM_TOKEN")  # ⬅️ TOKENni ENV dan olamiz
+TOKEN = os.environ.get("TELEGRAM_TOKEN")  # Tokenni atrof-muhitdan olamiz
 bot = telebot.TeleBot(TOKEN)
 
 @bot.message_handler(commands=["start"])
