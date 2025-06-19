@@ -1,7 +1,8 @@
 import telebot
 import os
 
-TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
+# Environment variabledan tokenni olish
+TOKEN = os.environ.get('BOT_TOKEN')
 
 if not TOKEN:
     raise Exception("Bot token not found in environment variables.")
@@ -9,7 +10,7 @@ if not TOKEN:
 bot = telebot.TeleBot(TOKEN)
 
 @bot.message_handler(commands=['start'])
-def start_handler(message):
-    bot.reply_to(message, "Assalomu alaykum, bot ishga tushdi!")
+def start(message):
+    bot.send_message(message.chat.id, "Bot ishlayapti!")
 
 bot.polling()
