@@ -13,4 +13,7 @@ bot = telebot.TeleBot(TOKEN)
 def start(message):
     bot.send_message(message.chat.id, "Bot ishlayapti!")
 
-bot.polling()
+try:
+    bot.polling(none_stop=True)
+except Exception as e:
+    print(f"Bot stopped due to: {e}")
