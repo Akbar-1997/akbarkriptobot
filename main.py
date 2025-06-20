@@ -1,172 +1,34 @@
+import telebot
+from flask import Flask, request
 
-Search
+TOKEN = "7503644452:AAEmuYssvT673f8PyH1vP5u8a_Qxd8IOIdU"
+bot = telebot.TeleBot(TOKEN)
 
-Live tail
-GMT+5
+app = Flask(__name__)
 
-Menu
-  File "/opt/render/project/src/.venv/lib/python3.13/site-packages/telebot/apihelper.py", line 162, in _make_request
-    json_result = _check_result(method_name, result)
-  File "/opt/render/project/src/.venv/lib/python3.13/site-packages/telebot/apihelper.py", line 189, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-"
-     ==> Deploying...
-==> Running 'python main.py'
-Traceback (most recent call last):
-  File "/opt/render/project/src/main.py", line 3, in <module>
-    from flask import Flask, request
-ModuleNotFoundError: No module named 'flask'
-==> Running 'python main.py'
-Traceback (most recent call last):
-  File "/opt/render/project/src/main.py", line 3, in <module>
-    from flask import Flask, request
-ModuleNotFoundError: No module named 'flask'
-     ==> Deploying...
-==> Running 'python main.py'
-Traceback (most recent call last):
-  File "/opt/render/project/src/main.py", line 32, in <module>
-    if name == "__main__":
-       ^^^^
-NameError: name 'name' is not defined
-     ==> Exited with status 1
-     ==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys
-==> Running 'python main.py'
-==> Running 'python main.py'
-Traceback (most recent call last):
-  File "/opt/render/project/src/main.py", line 3, in <module>
-    from flask import Flask, request
-ModuleNotFoundError: No module named 'flask'
-Traceback (most recent call last):
-  File "/opt/render/project/src/main.py", line 32, in <module>
-    if name == "__main__":
-       ^^^^
-NameError: name 'name' is not defined
-     ==> Deploying...
-==> Running 'python main.py'
-Traceback (most recent call last):
-  File "/opt/render/project/src/main.py", line 33, in <module>
-    if name == "__main__":
-       ^^^^
-NameError: name 'name' is not defined
-==> Running 'python main.py'
-Traceback (most recent call last):
-  File "/opt/render/project/src/main.py", line 33, in <module>
-    if name == "__main__":
-       ^^^^
-NameError: name 'name' is not defined
-     ==> Deploying...
-==> Running 'python main.py'
-Traceback (most recent call last):
-  File "/opt/render/project/src/main.py", line 33, in <module>
-    if name == "__main__":
-       ^^^^
-NameError: name 'name' is not defined
-  File "/opt/render/project/src/main.py", line 33, in <module>
-    if name == "__main__":
-       ^^^^
-NameError: name 'name' is not defined
-     ==> Exited with status 1
-     ==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys
-==> Running 'python main.py'
-Traceback (most recent call last):
-  File "/opt/render/project/src/main.py", line 33, in <module>
-    if name == "__main__":
-       ^^^^
-NameError: name 'name' is not defined
-==> Running 'python main.py'
-Traceback (most recent call last):
-  File "/opt/render/project/src/main.py", line 33, in <module>
-    if name == "__main__":
-       ^^^^
-NameError: name 'name' is not defined
-     ==> Deploying...
-==> Running 'python main.py'
-Traceback (most recent call last):
-  File "/opt/render/project/src/main.py", line 33, in <module>
-    if name == "main":
-       ^^^^
-NameError: name 'name' is not defined
-     ==> Exited with status 1
-     ==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys
-==> Running 'python main.py'
-Traceback (most recent call last):
-  File "/opt/render/project/src/main.py", line 33, in <module>
-    if name == "main":
-       ^^^^
-NameError: name 'name' is not defined
-     ==> Deploying...
-==> Running 'python main.py'
-Traceback (most recent call last):
-  File "/opt/render/project/src/main.py", line 33, in <module>
-    if name == "main":
-       ^^^^
-NameError: name 'name' is not defined
-     ==> Exited with status 1
-     ==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys
-==> Running 'python main.py'
-Traceback (most recent call last):
-  File "/opt/render/project/src/main.py", line 33, in <module>
-    if name == "main":
-       ^^^^
-NameError: name 'name' is not defined
-     ==> Deploying...
-==> Running 'python main.py'
-Traceback (most recent call last):
-  File "/opt/render/project/src/main.py", line 33, in <module>
-    if name == "__main__":
-       ^^^^
-NameError: name 'name' is not defined
-     ==> Exited with status 1
-     ==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys
-==> Running 'python main.py'
-Traceback (most recent call last):
-  File "/opt/render/project/src/main.py", line 33, in <module>
-    if name == "__main__":
-       ^^^^
-NameError: name 'name' is not defined
-     ==> Deploying...
-==> Running 'python main.py'
-Traceback (most recent call last):
-  File "/opt/render/project/src/main.py", line 33, in <module>
-    if name == "__main__":
-       ^^^^
-NameError: name 'name' is not defined
-     ==> Exited with status 1
-     ==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys
-==> Running 'python main.py'
-Traceback (most recent call last):
-  File "/opt/render/project/src/main.py", line 33, in <module>
-    if name == "__main__":
-       ^^^^
-NameError: name 'name' is not defined
-     ==> Deploying...
-==> Running 'python main.py'
-Traceback (most recent call last):
-  File "/opt/render/project/src/main.py", line 33, in <module>
-    if name == "__main__":
-       ^^^^
-NameError: name 'name' is not defined
-     ==> Exited with status 1
-     ==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys
-==> Running 'python main.py'
-Traceback (most recent call last):
-  File "/opt/render/project/src/main.py", line 33, in <module>
-    if name == "__main__":
-       ^^^^
-NameError: name 'name' is not defined
-     ==> Deploying...
-==> Running 'python main.py'
-Traceback (most recent call last):
-  File "/opt/render/project/src/main.py", line 33, in <module>
-    if name == "__main__":
-       ^^^^
-NameError: name 'name' is not defined
-     ==> Exited with status 1
-     ==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys
-==> Running 'python main.py'
-Traceback (most recent call last):
-  File "/opt/render/project/src/main.py", line 33, in <module>
-    if name == "__main__":
-       ^^^^
-NameError: name 'name' is not defined
+# Start buyrug‘i
+@bot.message_handler(commands=["start"])
+def send_welcome(message):
+    bot.reply_to(message, "Salom! Bu Akbar Crypto Bot!")
+
+# Oddiy echo funksiyasi
+@bot.message_handler(func=lambda message: True)
+def echo_all(message):
+    bot.reply_to(message, message.text)
+
+# Flask route — Telegram webhook'lar uchun
+@app.route(f'/{TOKEN}', methods=['POST'])
+def receive_update():
+    json_str = request.get_data().decode('UTF-8')
+    update = telebot.types.Update.de_json(json_str)
+    bot.process_new_updates([update])
+    return '', 200
+
+# Root route (browserda tekshirish uchun)
+@app.route('/')
+def index():
+    return "Bot ishlayapti!"
+
+# Run Flask server
+if name == "__main__":
+    app.run(host="0.0.0.0", port=10000)
