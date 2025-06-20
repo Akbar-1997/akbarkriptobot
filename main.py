@@ -30,5 +30,5 @@ def set_webhook():
     return "✅ Webhook o‘rnatildi", 200
 
 # TO‘G‘RI YOZILISHI SHU ⬇️
-if name == "__main__":
+if name == "main":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
