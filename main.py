@@ -29,6 +29,6 @@ def set_webhook():
     bot.set_webhook(url=f"https://akbarkriptobot.onrender.com/{TOKEN}")
     return "✅ Webhook o‘rnatildi", 200
 
-# TO‘G‘RI YOZILISHI SHU ⬇️
-if name == "main":
+# TO‘G‘RI YOZILGAN BO'LIM
+if name == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
