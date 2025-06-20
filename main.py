@@ -1,33 +1,33 @@
 import telebot
 import os
+from flask import Flask, request
 
-# Tokenni olish
-BOT_TOKEN = os.getenv("TELEGRAM_TOKEN")
-if not BOT_TOKEN:
+TOKEN = os.environ.get("TELEGRAM_TOKEN")
+if not TOKEN:
     raise Exception("Bot token not found in environment variables.")
 
-bot = telebot.TeleBot(BOT_TOKEN)
+bot = telebot.TeleBot(TOKEN)
+app = Flask(__name__)
 
-# /start buyrug'i
+# /start буйруғи
 @bot.message_handler(commands=['start'])
-def send_welcome(message):
-    bot.reply_to(message, "Salom! Men AkbarCryptoBotman. Buyruqlaringizni kutyapman.")
+def start_message(message):
+    bot.send_message(message.chat.id, "Assalomu alaykum! Bot ishga tushdi.")
 
-# /info buyrug'i
-@bot.message_handler(commands=['info'])
-def bot_info(message):
-    bot.reply_to(message, "🤖 Bu bot Akbar tomonidan yaratildi.\n📈 Kripto signal, Elliott tahlil, news alert va boshqa qulayliklarni taqdim etadi.")
+# Webhook endpoint
+@app.route(f"/{TOKEN}", methods=["POST"])
+def webhook():
+    json_string = request.get_data().decode("utf-8")
+    update = telebot.types.Update.de_json(json_string)
+    bot.process_new_updates([update])
+    return '', 200
 
-# /status buyrug'i
-@bot.message_handler(commands=['status'])
-def bot_status(message):
-    bot.reply_to(message, "✅ Bot faol ishlayapti!")
+# Telegram webhook URL’ни ўрнатиш
+@app.route("/", methods=["GET"])
+def index():
+    bot.remove_webhook()
+    bot.set_webhook(url=f"https://akbarkriptobot.onrender.com/{TOKEN}")
+    return "Webhook set", 200
 
-# /help buyrug'i
-@bot.message_handler(commands=['help'])
-def bot_help(message):
-    bot.reply_to(message, "📋 Buyruqlar ro'yxati:\n/start - Botni ishga tushirish\n/info - Bot haqida\n/status - Holatini tekshirish\n/help - Yordam")
-
-# Botni ishga tushurish
-print("Bot is running...")
-bot.infinity_polling()
+if name == "__main__":
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
