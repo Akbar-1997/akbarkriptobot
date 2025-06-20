@@ -1,19 +1,33 @@
 import telebot
 import os
 
-# Environment variabledan tokenni olish
-TOKEN = os.environ.get('BOT_TOKEN')
-
-if not TOKEN:
+# Tokenni olish
+BOT_TOKEN = os.getenv("TELEGRAM_TOKEN")
+if not BOT_TOKEN:
     raise Exception("Bot token not found in environment variables.")
 
-bot = telebot.TeleBot(TOKEN)
+bot = telebot.TeleBot(BOT_TOKEN)
 
+# /start buyrug'i
 @bot.message_handler(commands=['start'])
-def start(message):
-    bot.send_message(message.chat.id, "Bot ishlayapti!")
+def send_welcome(message):
+    bot.reply_to(message, "Salom! Men AkbarCryptoBotman. Buyruqlaringizni kutyapman.")
 
-try:
-    bot.polling(none_stop=True)
-except Exception as e:
-    print(f"Bot stopped due to: {e}")
+# /info buyrug'i
+@bot.message_handler(commands=['info'])
+def bot_info(message):
+    bot.reply_to(message, "🤖 Bu bot Akbar tomonidan yaratildi.\n📈 Kripto signal, Elliott tahlil, news alert va boshqa qulayliklarni taqdim etadi.")
+
+# /status buyrug'i
+@bot.message_handler(commands=['status'])
+def bot_status(message):
+    bot.reply_to(message, "✅ Bot faol ishlayapti!")
+
+# /help buyrug'i
+@bot.message_handler(commands=['help'])
+def bot_help(message):
+    bot.reply_to(message, "📋 Buyruqlar ro'yxati:\n/start - Botni ishga tushirish\n/info - Bot haqida\n/status - Holatini tekshirish\n/help - Yordam")
+
+# Botni ishga tushurish
+print("Bot is running...")
+bot.infinity_polling()
