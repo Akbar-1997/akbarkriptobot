@@ -99,3 +99,5 @@ def analyze_and_send_signals():
                     bot.send_message(CHAT_ID, signal)
             except Exception as e:
                 print(f"❌ {coin} - {tf} tahlilida xato: {e}")
+print("🚀 Bot ishga tushdi va tahlil boshlandi...")
+analyze_and_send_signals()
