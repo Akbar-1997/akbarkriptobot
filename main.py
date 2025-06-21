@@ -37,6 +37,7 @@ def send_test_signal():
     return "Test yuborildi", 200
 
 # Flask serverni ishga tushirish
-if:
+if name == "__main__":
+    app.run(host="0.0.0.0", port=10000)
     chat== "__main__":  # TO‘G‘RILANDI
     app.run(host="0.0.0.0", port=10000)
