@@ -3,7 +3,7 @@ import telebot
 
 TOKEN = "7503644452:AAEmuYssvT673f8PyH1vP5u8a_Qxd8IOIdU"
 bot = telebot.TeleBot(TOKEN)
-app = Flask(__name__)  # TO‘G‘RILANDI
+app = Flask(__name__)  # TO‘G‘RI
 
 @bot.message_handler(commands=["start"])
 def send_welcome(message):
@@ -30,6 +30,6 @@ def send_test_signal():
     bot.send_message(chat_id, "✅ Test signali: bot ishlayapti!")
     return "Test yuborildi", 200
 
-# 👉 Eng muhimi shu joyda tuzatish:
-if name == "__main__":
+# 🟢 MUHIM: Shu yer tuzatildi
+if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
