@@ -4,7 +4,7 @@ from flask import Flask, request
 TOKEN = "7503644452:AAEmuYssvT673f8PyH1vP5u8a_Qxd8IOIdU"
 bot = telebot.TeleBot(TOKEN)
 
-app = Flask(__name__)
+app = Flask(__name__)  # TO‘G‘RILANDI: __name__
 
 # /start komandasi uchun
 @bot.message_handler(commands=["start"])
@@ -24,11 +24,19 @@ def receive_update():
     bot.process_new_updates([update])
     return '', 200
 
-# Root route (tekshirish uchun)
+# Root route
 @app.route('/')
 def index():
     return "Bot ishlayapti!"
 
+# TEST SIGNAL QO‘SHILDI
+@app.route('/test')
+def send_test_signal():
+    chat_id = 7949482715  # Sizning Telegram ID
+    bot.send_message(chat_id, "✅ Test signali: bot ishlayapti!")
+    return "Test yuborildi", 200
+
 # Flask serverni ishga tushirish
-if __name__ == "__main__":
+if:
+    chat== "__main__":  # TO‘G‘RILANDI
     app.run(host="0.0.0.0", port=10000)
