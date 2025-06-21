@@ -1,35 +1,37 @@
-from flask import Flask, request
-import telebot
+import time
+import schedule
+from flask import Flask
+from threading import Thread
+from analyze import analyze_and_send_signals  # Sizda mavjud bo'lishi kerak
+import logging
 
-TOKEN = "7503644452:AAEmuYssvT673f8PyH1vP5u8a_Qxd8IOIdU"
-bot = telebot.TeleBot(TOKEN)
-app = Flask(__name__)  # TO‘G‘RI
-
-@bot.message_handler(commands=["start"])
-def send_welcome(message):
-    bot.reply_to(message, "Salom! Bu Akbar Crypto Bot!")
-
-@bot.message_handler(func=lambda message: True)
-def echo_all(message):
-    bot.reply_to(message, message.text)
-
-@app.route(f'/{TOKEN}', methods=['POST'])
-def receive_update():
-    json_str = request.get_data().decode('UTF-8')
-    update = telebot.types.Update.de_json(json_str)
-    bot.process_new_updates([update])
-    return '', 200
+app = Flask(__name__)
 
 @app.route('/')
-def index():
-    return "Bot ishlayapti!"
+def home():
+    return 'Bot ishlayapti!'
 
-@app.route('/test')
-def send_test_signal():
-    chat_id = 7949482715  # Sizning Telegram ID
-    bot.send_message(chat_id, "✅ Test signali: bot ishlayapti!")
-    return "Test yuborildi", 200
+# Har 30 daqiqada signal tahlili
+def job():
+    try:
+        print("⏳ Signal tahlili boshlanmoqda...")
+        analyze_and_send_signals()
+        print("✅ Signal tahlili yakunlandi.")
+    except Exception as e:
+        logging.exception("Xatolik yuz berdi (analyze_and_send_signals):")
 
-# 🟢 MUHIM: Shu yer tuzatildi
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)
+# Schedule thread
+def run_schedule():
+    schedule.every(30).minutes.do(job)
+    job()  # dastlab darhol ishga tushadi
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
+
+# Flask server thread
+def run_flask():
+    app.run(host='0.0.0.0', port=10000)
+
+if __name__ == '__main__':
+    Thread(target=run_schedule).start()
+    Thread(target=run_flask).start()
