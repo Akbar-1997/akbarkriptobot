@@ -4,7 +4,7 @@ from flask import Flask, request
 TOKEN = "7503644452:AAEmuYssvT673f8PyH1vP5u8a_Qxd8IOIdU"
 bot = telebot.TeleBot(TOKEN)
 
-app = Flask(__name__)  # TO‘G‘RILANDI: __name__
+app = Flask(__name__)  # TO‘G‘RILANDI
 
 # /start komandasi uchun
 @bot.message_handler(commands=["start"])
@@ -38,6 +38,4 @@ def send_test_signal():
 
 # Flask serverni ishga tushirish
 if name == "__main__":
-    app.run(host="0.0.0.0", port=10000)
-    chat== "__main__":  # TO‘G‘RILANDI
     app.run(host="0.0.0.0", port=10000)
