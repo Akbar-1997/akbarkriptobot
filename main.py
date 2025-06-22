@@ -5,7 +5,7 @@ from threading import Thread
 from analyze import analyze_and_send_signals  # Sizda mavjud bo'lishi kerak
 import logging
 
-app = Flask(__name__)
+app = Flask(__name__)  # ✅ to‘g‘rilandi
 
 @app.route('/')
 def home():
@@ -32,6 +32,6 @@ def run_schedule():
 def run_flask():
     app.run(host='0.0.0.0', port=10000)
 
-if __name__ == '__main__':
+if name == '__main__':  # ✅ to‘g‘rilandi
     Thread(target=run_schedule).start()
     Thread(target=run_flask).start()
