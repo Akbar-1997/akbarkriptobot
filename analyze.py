@@ -2,6 +2,7 @@ import ccxt
 import pandas as pd
 import pandas_ta as ta
 from telebot import TeleBot
+import time
 
 # Telegram bot ma'lumotlari
 TOKEN = "7503644452:AAEmuYssvT673f8PyH1vP5u8a_Qxd8IOIdU"
@@ -55,6 +56,9 @@ def analyze_and_send_signals():
             except Exception as e:
                 print(f"❌ {coin} - {tf} tahlilida xato: {e}")
 
-# 👉 Fayl ishga tushganda:
+# 🔁 Doimiy ishga tushirish
 print("🚀 Bot ishga tushdi!")
-analyze_and_send_signals()
+print("♻️ Doimiy signal monitoringi boshlandi...")
+while True:
+    analyze_and_send_signals()
+    time.sleep(1800)  # Har 30 daqiqa
