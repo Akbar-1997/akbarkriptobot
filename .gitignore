@@ -1,3 +1,25 @@
+# Python cache and compiled files
 __pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Env files (secret keys, tokens, etc.)
 .env
-*.pyc
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# macOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# IDE/editor settings
+.vscode/
+.idea/
