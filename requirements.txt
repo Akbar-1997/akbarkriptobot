@@ -1,5 +1,5 @@
 pandas==1.5.3
-git+https://github.com/twopirllc/pandas-ta.git@master#egg=pandas-ta
+pandas-ta==0.3.14b0
 numpy==1.23.5
 pyTelegramBotAPI==4.12.0
 flask==3.0.3
